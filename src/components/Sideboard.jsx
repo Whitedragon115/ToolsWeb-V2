@@ -4,7 +4,7 @@ import "../assets/css/sidebar.css"
 const Sideboard = () => {
   return (
     <>
-      <div className="h-full w-[30vh] bg-amber-200 sidebar">
+      <div className="h-full w-[25vh] bg-amber-200 sidebar">
         
       </div>
     </>

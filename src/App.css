@@ -36,3 +36,17 @@ body {
 .theme-switch:hover {
   transform: rotateY(180deg);
 }
+
+.sidebar {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.interface {
+  display: grid;
+  grid-template-columns: 0fr 7fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}

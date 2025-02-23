@@ -1,14 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaTools, FaGithub, FaLink, FaQuestion } from "react-icons/fa";
 import "../assets/css/topbar.css";
 import anime from "animejs";
 
 const Topbar = () => {
+  const [toolsBgColor, setToolsBgColor] = useState("#CAF1FF");
+  const [move, setMove] = useState(0);
+  const [toggle, setToggle] = useState(false);
+
+  const toolsClick = () => {
+    setToolsBgColor(toolsBgColor === "#CAF1FF" ? "#FFD700" : "#CAF1FF");
+    setToggle(!toggle);
+    setMove(toggle ? 0 : -150);
+
+    anime({
+      targets: ".interface",
+      gridTemplateColumns: toggle ? "1fr 7fr" : "0fr 7fr",
+      easing: "easeInOutQuad",
+      duration: 100
+    });
+
+    anime({
+      targets: ".sidebar",
+      opacity: toggle ? 1 : 0,
+      easing: "easeInOutQuad",
+      duration: 100,
+      complete: () => {
+        document.querySelector(".sidebar").style.visibility = toggle ? "visible" : "hidden";
+      }
+    });
+  };
+
   return (
     <>
       <div className={`flex justify-center`}>
         <div
           className={`flex justify-center items-center h-[10vh] w-[70vh] topbar-box p-[1.2vh] opacity-90`}
+          style={{ transform: `translateY(${move}px)`, transition: "all 0.5s", transitionDelay: "0.3s" }}
         >
           <div
             className={`flex justify-between items-center h-full w-full rounded-full topbar-box-inner`}
@@ -32,7 +60,11 @@ const Topbar = () => {
                   <FaGithub className="h-3/5 w-3/5" />
                 </div>
               </div>
-              <div className="flex items-center justify-center rounded-full bg-[#CAF1FF] h-full aspect-square border-[.5vh] border-[#D9D9D9] z-10 btn-tools testing">
+              <div
+                className="flex items-center justify-center rounded-full h-full aspect-square border-[.5vh] border-[#D9D9D9] z-10 btn-tools testing"
+                style={{ backgroundColor: toolsBgColor }}
+                onClick={toolsClick}
+              >
                 <FaTools className="btn-tools-svg" />
               </div>
             </div>

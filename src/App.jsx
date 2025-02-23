@@ -7,22 +7,24 @@ import "./App.css";
 export const App = () => {
   return (
     <>
-      <body>
-        <div className="backdrop"></div>
-        <div className=" grid gird"></div>
-        <Slideboard />
-        <div className="main-content"></div>
-        <Topbar />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <h1 className="text-8xl text-blue-200 title-font">Dragon Tool</h1>
+      <div className="backdrop" />
+      <div className="interface h-full">
+        <div className="h-full">
+          <Slideboard />
         </div>
-        <div className="absolute bottom-0 right-0">
-          <div className="w-[7vh] h-[7vh] rounded-full bg-blue-300 border-4 border-blue-200 flex items-center justify-center absolute bottom-[2vh] right-[2vh] theme-switch">
-            <WiMoonAltThirdQuarter className="w-[5vh] h-[5vh] svg" />
+        <div className="flex-col justify-center items-center">
+          <Topbar />
+          <div className="flex justify-center items-center h-[75vh]">
+            <h1 className="text-8xl text-blue-200 title-font">Dragon Tool</h1>
           </div>
-          {Svg()}
         </div>
-      </body>
+      </div>
+      <div className="absolute bottom-0 right-0">
+        <div className="w-16 h-16 rounded-full bg-blue-300 border-4 border-blue-200 flex items-center justify-center absolute bottom-[1.5vh] right-[1.5vh] cursor-pointer theme-switch">
+          <WiMoonAltThirdQuarter className="w-16 h-16 svg" />
+        </div>
+        {Svg()}
+      </div>
     </>
   );
 };
