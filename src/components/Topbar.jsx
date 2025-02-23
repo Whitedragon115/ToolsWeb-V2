@@ -21,14 +21,18 @@ const Topbar = () => {
                   <FaQuestion className="h-3/5 w-3/5" />
                 </div>
               </div>
-              <div className="rounded-full bg-[#CAF1FF] h-6/9 aspect-square border-5 border-[#D9D9D9] z-10 flex items-center justify-center btn-link">
+              <div className="rounded-full bg-[#CAF1FF] h-6/9 aspect-square border-5 border-[#D9D9D9] z-10 flex items-center justify-center btn-question-top">
+              <div className="h-full w-full bg-[#D9D9D9] rounded-full flex items-center justify-center btn-question">
                 <FaLink className="h-3/5 w-3/5" />
               </div>
-              <div className="rounded-full bg-[#CAF1FF] h-6/9 aspect-square border-5 border-[#D9D9D9] z-10 flex items-center justify-center btn-github">
+              </div>
+              <div className="rounded-full bg-[#CAF1FF] h-6/9 aspect-square border-5 border-[#D9D9D9] z-10 flex items-center justify-center btn-question-top">
+              <div className="h-full w-full bg-[#D9D9D9] rounded-full flex items-center justify-center btn-question">
                 <FaGithub className="h-3/5 w-3/5" />
               </div>
+              </div>
               <div className="rounded-full bg-[#CAF1FF] h-full aspect-square border-5 border-[#D9D9D9] z-10 flex items-center justify-center btn-tools">
-                <FaTools className="h-3/5 w-3/5" />
+                <FaTools className="h-5/9 w-5/9" />
               </div>
             </div>
           </div>
