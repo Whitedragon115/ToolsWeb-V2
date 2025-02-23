@@ -31,8 +31,9 @@ const Topbar = () => {
                 <FaGithub className="h-3/5 w-3/5" />
               </div>
               </div>
-              <div className="rounded-full bg-[#CAF1FF] h-full aspect-square border-5 border-[#D9D9D9] z-10 flex items-center justify-center btn-tools">
-                <FaTools className="h-5/9 w-5/9" />
+              <div className="rounded-full bg-[#CAF1FF] h-full aspect-square border-5 border-[#D9D9D9] z-10">
+                <div className="btn-tools"></div>
+                <FaTools className="h-5/9 w-5/9 btn-tools-svg" />
               </div>
             </div>
           </div>

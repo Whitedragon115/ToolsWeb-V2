@@ -42,19 +42,17 @@
 }
 
 .btn-question:hover {
+    cursor: pointer;
     transform: scale(0.9);
     box-shadow: 0px 0px 29.2px rgb(255, 255, 255);
 }
 
-.btn-tools::after {
-    content: "";
-    position: absolute;
-    top: 50%; 
-    right: 4%;
-    height: 70%;
-    aspect-ratio: 1/1;
-    background: #c03636;
-    transform: translateY(-50%); 
-    border-radius: 50%;
-    z-index: 10;
+.btn-tools {
+    position: relative; 
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.btn-tools-svg {
+    
 }
