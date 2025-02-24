@@ -9,26 +9,26 @@ const Topbar = () => {
   const [toggle, setToggle] = useState(false);
 
   const toolsClick = () => {
-    setToolsBgColor(toolsBgColor === "#CAF1FF" ? "#FFD700" : "#CAF1FF");
+    setToolsBgColor(toolsBgColor === "#CAF1FF" ? "#ffffff" : "#CAF1FF");
     setToggle(!toggle);
     setMove(toggle ? 0 : -150);
 
     anime({
       targets: ".interface",
-      gridTemplateColumns: toggle ? "1fr 7fr" : "0fr 7fr",
+      gridTemplateColumns: toggle ? "0fr 7fr" : "1fr 7fr",
+      duration: 1000,
       easing: "easeInOutQuad",
-      duration: 100
-    });
+    })
 
     anime({
-      targets: ".sidebar",
-      opacity: toggle ? 1 : 0,
+      targets: ".side-bar",
+      left: toggle ? "-25vh" : 0,
+      opacity: toggle ? 0 : .5,
+      duration: 1000,
+      delay: 500,
       easing: "easeInOutQuad",
-      duration: 100,
-      complete: () => {
-        document.querySelector(".sidebar").style.visibility = toggle ? "visible" : "hidden";
-      }
-    });
+    })
+
   };
 
   return (

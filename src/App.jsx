@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <>
       <div className="backdrop" />
-      <div className="interface h-full">
+      <div className="h-full interface">
         <div className="h-full">
           <Slideboard />
         </div>
