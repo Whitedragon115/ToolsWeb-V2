@@ -13,30 +13,37 @@ const Topbar = () => {
     setToggle(!toggle);
     setMove(toggle ? 0 : -150);
 
+    runAllAnimation();
+  };
+
+  function runAllAnimation() {
     anime({
       targets: ".interface",
       gridTemplateColumns: toggle ? "0fr 7fr" : "1fr 7fr",
       duration: 1000,
       easing: "easeInOutQuad",
-    })
+    });
 
     anime({
       targets: ".side-bar",
       left: toggle ? "-25vh" : 0,
-      opacity: toggle ? 0 : .5,
+      opacity: toggle ? 0 : 0.5,
       duration: 1000,
       delay: 500,
       easing: "easeInOutQuad",
-    })
-
-  };
+    });
+  }
 
   return (
     <>
       <div className={`flex justify-center`}>
         <div
           className={`flex justify-center items-center h-[10vh] w-[70vh] topbar-box p-[1.2vh] opacity-90`}
-          style={{ transform: `translateY(${move}px)`, transition: "all 0.5s", transitionDelay: "0.3s" }}
+          style={{
+            transform: `translateY(${move}px)`,
+            transition: "all 0.5s",
+            transitionDelay: "0.3s",
+          }}
         >
           <div
             className={`flex justify-between items-center h-full w-full rounded-full topbar-box-inner`}

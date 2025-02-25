@@ -1,5 +1,6 @@
 import React from "react";
 import { WiMoonAltThirdQuarter } from "react-icons/wi";
+import { FaTools } from "react-icons/fa";
 import Topbar from "./components/Topbar";
 import Slideboard from "./components/Sideboard";
 import "./App.css";
@@ -22,6 +23,9 @@ export const App = () => {
       <div className="absolute bottom-0 right-0">
         <div className="w-16 h-16 rounded-full bg-blue-300 border-4 border-blue-200 flex items-center justify-center absolute bottom-[1.5vh] right-[1.5vh] cursor-pointer theme-switch">
           <WiMoonAltThirdQuarter className="w-16 h-16 svg" />
+        </div>
+        <div className="w-16 h-16 rounded-full bg-blue-300 border-4 border-blue-200 flex items-center justify-center absolute bottom-[.5vh] right-[.5vh] cursor-pointer toolbox-opened">
+          <FaTools className="w-16 h-16 svg" />
         </div>
         {Svg()}
       </div>

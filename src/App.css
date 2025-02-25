@@ -29,8 +29,12 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.theme-switch>.svg {
-    transform: translateY(1px);
+.toolbox-opened{
+  
+}
+
+.theme-switch.svg {
+  transform: translateY(1px);
 }
 
 .theme-switch:hover {
