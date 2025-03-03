@@ -1,9 +1,15 @@
 import React from "react";
 import { WiMoonAltThirdQuarter } from "react-icons/wi";
 import { FaTools } from "react-icons/fa";
+
+import GradientText from "./TextAnimations/GradientText/GradientText";
 import Topbar from "./components/Topbar";
 import Slideboard from "./components/Sideboard";
 import "./App.css";
+
+const handleAnimationComplete = () => {
+  console.log("All letters have animated!");
+};
 
 export const App = () => {
   return (
