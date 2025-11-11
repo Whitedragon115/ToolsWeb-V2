@@ -194,7 +194,7 @@ export default function GlobalLoader({ children }: GlobalLoaderProps) {
                         className='absolute w-64 h-64 rotate-45 border border-gray-500 line-2 animate__animated animate__fadeIn'
                         style={{
                             transition: loadDone ? 'all 300ms ease-in-out' : '',
-                            transform: loadDone ? 'scale(6)' : '',
+                            transform: loadDone ? 'scale(7)' : '',
                             borderWidth: loadDone ? 0 : 1,
                         }}
                     />
