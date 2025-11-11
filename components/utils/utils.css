@@ -1,0 +1,18 @@
+.loader-xray {
+    --hole-w: 128px;
+    --hole-h: 128px;
+  mask:
+    linear-gradient(black, black) top / 100% calc(50% - var(--hole-h, 128px)),
+    linear-gradient(black, black) bottom / 100% calc(50% - var(--hole-h, 128px)),
+    linear-gradient(black, black) left / calc(50% - var(--hole-w, 128px)) 100%,
+    linear-gradient(black, black) right / calc(50% - var(--hole-w, 128px)) 100%;
+  mask-repeat: no-repeat;
+  mask-composite: add;
+}
+
+.loader-xray-box {
+    --hole-w: 256px;
+    --hole-h: 256px;
+  width: var(--hole-w);
+  height: var(--hole-h);
+}

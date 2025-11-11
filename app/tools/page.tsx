@@ -6,13 +6,13 @@ import { FaTools } from "react-icons/fa";
 
 //@ts-ignore
 import 'animate.css'
-import GlobalLoader from '@/components/utils/OpenLoader';
 import ClosingLink from '@/components/utils/ClosingLink';
+import NormalLoader from '@/components/utils/OpenLoader-2';
 
 export default function Home() {
 
     return (
-        <GlobalLoader>
+        <NormalLoader>
             <div className="w-full h-screen flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/50 z-0" />
                 <div className="absolute inset-0 z-0">
@@ -69,6 +69,6 @@ export default function Home() {
                 </div>
 
             </div>
-        </GlobalLoader>
+        </NormalLoader>
     );
 }

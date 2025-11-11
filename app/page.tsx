@@ -6,7 +6,7 @@ import { FaTools } from "react-icons/fa";
 
 //@ts-ignore
 import 'animate.css'
-import GlobalLoader from '@/components/utils/OpenLoader';
+import GlobalLoader from '@/components/utils/OpenLoader-1';
 import ClosingLink from '../components/utils/ClosingLink';
 
 export default function Home() {

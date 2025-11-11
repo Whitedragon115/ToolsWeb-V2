@@ -27,18 +27,51 @@ export default function ClosingLink({ children, href: href, className, style, ..
     async function handelClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         e.preventDefault();
 
-        animate('.an_unloadL', {
-            ...animateConfig,
-            y: '0%',
-        }).play()
+        // 創建容器
+        const container = document.createElement('div');
+        container.className = 'w-full h-screen absolute top-0 left-0 flex flex-col overflow-hidden z-50 pointer-events-none';
+        
+        // 創建三個方塊
+        const box1 = document.createElement('div');
+        box1.className = 'bg-gray-800 w-screen h-[calc(100vh/3)] box1';
+        box1.style.transform = 'translateX(100vw)';
+        
+        const box2 = document.createElement('div');
+        box2.className = 'bg-gray-800 w-screen h-[calc(100vh/3)] box2';
+        box2.style.transform = 'translateX(-100vw)';
+        
+        const box3 = document.createElement('div');
+        box3.className = 'bg-gray-800 w-screen h-[calc(100vh/3)] box3';
+        box3.style.transform = 'translateX(100vw)';
+        
+        // 添加到容器
+        container.appendChild(box1);
+        container.appendChild(box2);
+        container.appendChild(box3);
+        
+        // 添加到 body
+        document.body.appendChild(container);
 
-        animate('.an_unloadR', {
+        // 播放動畫
+        animate('.box1', {
             ...animateConfig,
-            y: '0%',
-        }).play()
+            translateX: '0vw',
+        }).play();
+
+        animate('.box2', {
+            ...animateConfig,
+            translateX: '0',
+        }).play();
+
+        animate('.box3', {
+            ...animateConfig,
+            translateX: '0',
+        }).play();
 
         await speed(700);
         router.push(href);
+        await speed(300);
+        document.body.removeChild(container);
     }
 
     return (
