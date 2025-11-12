@@ -23,6 +23,8 @@ export default function GlobalLoader({ children }: GlobalLoaderProps) {
 
     useEffect(() => {
 
+        document.getElementById('closing-div')?.remove();
+
         const durationPerPhase = 1000;
 
         // Settings
@@ -96,15 +98,15 @@ export default function GlobalLoader({ children }: GlobalLoaderProps) {
         // Opening Animations
         const openingAnimations = () => {
 
-            const targetW = window.innerWidth - 100;
-            const targetH = window.innerHeight - 100;
+            const targetW = window.innerWidth / 100 * 50;
+            const targetH = window.innerHeight / 100 * 30;
 
             animate('.loader-xray', {
                 ease: cubicBezier(0.7, 0.1, 0.5, 0.9),
                 keyframes: [
                     { duration: 300, '--hole-w': `${targetW / 2}px`, '--hole-h': `${targetH / 2}px` },
                     { duration: 300 },
-                    { duration: 300, '--hole-w': `${targetW / 2 + 200}px`, '--hole-h': `${targetH / 2 + 200}px` },
+                    { duration: 300, '--hole-w': `${window.innerWidth / 2 + 100}px`, '--hole-h': `${window.innerHeight / 2 + 100}px` },
                     { duration: 0, 'opacity': 0 }
                 ]
             })
@@ -114,7 +116,7 @@ export default function GlobalLoader({ children }: GlobalLoaderProps) {
                 keyframes: [
                     { duration: 300, '--hole-w': `${targetW}px`, '--hole-h': `${targetH}px` },
                     { duration: 300 },
-                    { duration: 300, '--hole-w': `${targetW + 200}px`, '--hole-h': `${targetH + 200}px` },
+                    { duration: 300, '--hole-w': `${window.innerWidth + 100}px`, '--hole-h': `${window.innerHeight + 100}px` },
                     { duration: 0, display: 'none' }
                 ]
             })
@@ -153,11 +155,20 @@ export default function GlobalLoader({ children }: GlobalLoaderProps) {
                 }
             }
         }).play();
+    }, [])
 
-        setTimeout(() => {
+    useEffect(() => {
+        const handleLoad = () => {
+            console.log('✅ Page fully loaded');
             loadingRef.current = true;
-        }, 100);
+        };
 
+        if (document.readyState === 'complete') {
+            handleLoad();
+        } else {
+            window.addEventListener('load', handleLoad);
+            return () => window.removeEventListener('load', handleLoad);
+        }
     }, [])
 
     return (

@@ -30,6 +30,7 @@ export default function ClosingLink({ children, href: href, className, style, ..
         // 創建容器
         const container = document.createElement('div');
         container.className = 'w-full h-screen absolute top-0 left-0 flex flex-col overflow-hidden z-50 pointer-events-none';
+        container.id = 'closing-div';
         
         // 創建三個方塊
         const box1 = document.createElement('div');
@@ -71,7 +72,6 @@ export default function ClosingLink({ children, href: href, className, style, ..
         await speed(700);
         router.push(href);
         await speed(300);
-        document.body.removeChild(container);
     }
 
     return (

@@ -37,13 +37,10 @@ export default function RootLayout({
         </script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{
-          background: `url('${bgUrl}')`,
+          background: `#1e2939 no-repeat center center fixed`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
         }}
       >
         {children}
