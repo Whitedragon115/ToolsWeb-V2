@@ -85,7 +85,7 @@
 }
 
 .dark {
-  --background: oklch(44.953% 0.00005 271.152)
+  --background: oklch(44.953% 0.00005 271.152);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -122,11 +122,26 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1 hover:w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900 rounded-md;
+    /* 背景 + 圓角 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-lg hover:bg-gray-600;
   }
 }

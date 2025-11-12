@@ -81,17 +81,21 @@ const LetterGlitch = ({
     const dpr = window.devicePixelRatio || 1;
     const rect = parent.getBoundingClientRect();
 
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    // 添加 20px 到寬度和高度
+    const extraWidth = 20;
+    const extraHeight = 20;
 
-    canvas.style.width = `${rect.width}px`;
-    canvas.style.height = `${rect.height}px`;
+    canvas.width = (rect.width + extraWidth) * dpr;
+    canvas.height = (rect.height + extraHeight) * dpr;
+
+    canvas.style.width = `${rect.width + extraWidth}px`;
+    canvas.style.height = `${rect.height + extraHeight}px`;
 
     if (context.current) {
       context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    const { columns, rows } = calculateGrid(rect.width, rect.height);
+    const { columns, rows } = calculateGrid(rect.width + extraWidth, rect.height + extraHeight);
     initializeLetters(columns, rows);
 
     drawLetters();
